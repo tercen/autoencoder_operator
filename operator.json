@@ -1,30 +1,47 @@
 {
-  "name": "Template R operator",
-  "description": "Return the medium value of a cell",
-  "tags": ["template"],
+  "name": "Autoencoder operator",
+  "description": "Trains an autoencoder-based model",
+  "tags": ["clustering", "dimension reduction"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/template_R_operator"],
+  "urls": ["https://github.com/tercen/autoencoder_operator"],
   "properties": [
    {
     "kind": "StringProperty",
-    "name": "string_example",
-    "defaultValue": "example",
-    "description": "description parameter 1"
+    "name": "hidden_layers",
+    "defaultValue": "32, 2, 32",
+    "description": "comma-separated list describing the hidden layers architecture (e.g. `12, 2, 12` corresponds to 3 layers containing respectively 12, 2 and 12 nodes)"
+    },
+    {
+    "kind": "StringProperty",
+    "name": "activ_functions",
+    "defaultValue": "relu, relu, relu",
+    "description": "comma-separated list of activation functions, as many as there are hidden layers (e.g. relu, linear, relu)"
     },
     {
     "kind": "EnumeratedProperty",
-    "name": "list_example",
-    "defaultValue": "value1",
+    "name": "optim_type",
+    "defaultValue": "adam",
     "values": [
-      "value1",
+      "adam",
       "StringProperty",
-      "DoubleProperty",
-      "BooleanProperty",
-      "EnumeratedProperty"
     ],
-    "description": "description parameter 2"
-  }
+    "description": "Optimizer type"
+  },
+      {
+    "kind": "EnumeratedProperty",
+    "name": "loss_type",
+    "defaultValue": "squared",
+    "values": [
+      "squared",
+      "squared",
+    ],
+    "description": "Loss type"
+  },
+    {
+    "kind": "DoubleProperty",
+    "name": "n_epochs",
+    "defaultValue": 30,
+    "description": "Number of epochs"
+    }
   ]
 }
-
-

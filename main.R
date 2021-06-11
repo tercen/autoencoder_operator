@@ -2,9 +2,6 @@ library(tercen)
 library(dplyr)
 library(ANN2)
 
-options("tercen.workflowId" = "35cbf699d9b52dbc9a37186993009884")
-options("tercen.stepId"     = "59b208e9-9bdc-4ec6-9d8c-1a97b819e1e4")
-
 minmax <- function(x) { return((x- min(x)) /(max(x)-min(x))) }
 
 ctx <- tercenCtx()

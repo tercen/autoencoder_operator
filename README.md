@@ -2,34 +2,34 @@
 
 ##### Description
 
-The `Template R operator` is a template repository for the creation of R operators in Tercen.
+The `Autoencoder operator` trains an autoencoder model on the input data.
 
 ##### Usage
 
 Input projection|.
 ---|---
-`x-axis`        | type, description 
-`y-axis`        | type, description 
-`row`           | type, description 
-`column`        | type, description 
-`colors`        | type, description 
-`labels`        | type, description 
+`y-axis`        | numeric, input value 
+`row`           | factor, variables 
+`column`        | factor, observations 
 
 Input parameters|.
 ---|---
-`input_var`        | parameter description
+`hidden_layers`        | comma-separated list describing the hidden layers architecture (e.g. `12, 2, 12` corresponds to 3 layers containing respectively 12, 2 and 12 nodes)
+`activ_functions`        |  comma-separated list of activation functions, as many as there are hidden layers (e.g. `relu, linear, relu`)
+`optim_type`        | optimizer type
+`loss_type`        | loss function type
+`n_epochs`        | number of epochs for training
 
 Output relations|.
 ---|---
-`output_var`        | output relation
-`Operator view`        | view of the Shiny application
+`encoded`        | observations scores on each of the embedded layer dimensions
+`clusters`        | ID of the highest scoring dimension for each obervation
 
 ##### Details
 
-Details on the computation.
+This operator is a wrapper of the `autoencoder` function of the `ANN2` R package.
 
 ##### See Also
 
-[template_shiny_operator](https://github.com/tercen/template_shiny_operator)
-, [template_docker_operator](https://github.com/tercen/template_docker_operator)
+[nmf_operator](https://github.com/tercen/template_shiny_operator)
 
