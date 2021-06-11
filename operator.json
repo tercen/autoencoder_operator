@@ -14,16 +14,17 @@
     {
     "kind": "StringProperty",
     "name": "activ_functions",
-    "defaultValue": "relu, relu, relu",
-    "description": "comma-separated list of activation functions, as many as there are hidden layers (e.g. relu, linear, relu)"
+    "defaultValue": "relu, linear, relu",
+    "description": "comma-separated list of activation functions, as many as there are hidden layers (e.g. relu, linear, relu). Possible values include tanh, sigmoid, relu, linear, ramp and step"
     },
     {
     "kind": "EnumeratedProperty",
     "name": "optim_type",
     "defaultValue": "adam",
     "values": [
-      "adam",
-      "StringProperty",
+      "sgd", 
+      "rmsprop",
+      "adam"
     ],
     "description": "Optimizer type"
   },
@@ -33,7 +34,9 @@
     "defaultValue": "squared",
     "values": [
       "squared",
-      "squared",
+      "absolute",
+      "huber",
+      "pseudo-huber"
     ],
     "description": "Loss type"
   },
