@@ -22,6 +22,7 @@ activ_functions <- ifelse(
   as.character(ctx$op.value('activ_functions')),
   "relu, linear, relu"
 )
+activ_functions <- (trimws(strsplit(activ_functions, ",")[[1]]))
 
 optim_type <- ifelse(
   !is.null(ctx$op.value('optim_type')),
