@@ -57,6 +57,6 @@
     "name": "seed",
     "defaultValue": -1,
     "description": "Seed for random number generation. if less than 0, set a Random seed"
-  },
+  }
   ]
 }
