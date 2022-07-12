@@ -14,5 +14,17 @@
   "xAxis": "",
   "generatedOn": "07/12/2022 09:51:36 AM 2022",
   "version": "",
+  "propertyValues": [
+    {
+    "kind": "PropertyValue",
+    "name": "batch_size",
+    "value": "2"
+    },
+    {
+    "kind": "PropertyValue",
+    "name": "seed",
+    "value": "42"
+  }
+  ],
   "relTol": 1e-05
 }

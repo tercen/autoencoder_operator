@@ -2,14 +2,15 @@ library(tercen)
 library(dplyr)
 library(ANN2)
 
-
-#library(tim)
-#options("tercen.workflowId" = "6015a4dd34cef273755e1a1b1500427b")
-#options("tercen.stepId"     = "82523b0f-3018-41fd-9b40-ff5a23b57227")
-
 minmax <- function(x) { return((x- min(x)) /(max(x)-min(x))) }
 
 ctx <- tercenCtx()
+
+
+seed <- NULL
+if(!ctx$op.value('seed') < 0) seed <- as.integer(ctx$op.value('seed'))
+set.seed(seed)
+
 df <- ctx$as.matrix() %>% t
 colnames(df) <- ctx$rselect()[[1]]
 df <- df %>% as_tibble
@@ -47,6 +48,12 @@ n_epochs <- ifelse(
   30
 )
 
+batch_size <- ifelse(
+  !is.null(ctx$op.value('batch_size')),
+  as.numeric(ctx$op.value('batch_size')),
+  32
+)
+
 ac <- autoencoder(
   df,
   hidden.layers = hidden_layers,
@@ -55,8 +62,8 @@ ac <- autoencoder(
   optim.type = optim_type,
   loss.type = loss_type,
   n.epochs = n_epochs,
-  batch.size = 2,
-  random.seed = 42
+  batch.size = batch_size,
+  random.seed = seed
 )
 
 encoded <- encode(ac, df)
@@ -65,12 +72,10 @@ clusters <- max.col(encoded, ties.method = "first")
 df_out <- list(
   encoded,
   clusters = clusters,
-  .ci = 0:(length(clusters) - 1)
+  .ci = 0:(length(clusters) - 1L)
 ) %>% 
   as.data.frame() %>%
   ctx$addNamespace() 
 
 df_out %>%
   ctx$save()
-
-#tim::build_test_data(res_table = df_out, ctx = ctx, test_name = "test1")

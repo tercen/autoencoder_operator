@@ -45,6 +45,18 @@
     "name": "n_epochs",
     "defaultValue": 30,
     "description": "Number of epochs"
-    }
+    },
+    {
+    "kind": "DoubleProperty",
+    "name": "batch_size",
+    "defaultValue": 32,
+    "description": "batch size"
+    },
+    {
+    "kind": "DoubleProperty",
+    "name": "seed",
+    "defaultValue": -1,
+    "description": "Seed for random number generation. if less than 0, set a Random seed"
+  },
   ]
 }
