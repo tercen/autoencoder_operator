@@ -2,6 +2,11 @@ library(tercen)
 library(dplyr)
 library(ANN2)
 
+
+#library(tim)
+#options("tercen.workflowId" = "6015a4dd34cef273755e1a1b1500427b")
+#options("tercen.stepId"     = "82523b0f-3018-41fd-9b40-ff5a23b57227")
+
 minmax <- function(x) { return((x- min(x)) /(max(x)-min(x))) }
 
 ctx <- tercenCtx()
@@ -49,7 +54,9 @@ ac <- autoencoder(
   activ.functions = activ_functions,
   optim.type = optim_type,
   loss.type = loss_type,
-  n.epochs = n_epochs
+  n.epochs = n_epochs,
+  batch.size = 2,
+  random.seed = 42
 )
 
 encoded <- encode(ac, df)
@@ -61,5 +68,9 @@ df_out <- list(
   .ci = 0:(length(clusters) - 1)
 ) %>% 
   as.data.frame() %>%
-  ctx$addNamespace() %>%
+  ctx$addNamespace() 
+
+df_out %>%
   ctx$save()
+
+#tim::build_test_data(res_table = df_out, ctx = ctx, test_name = "test1")
