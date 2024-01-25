@@ -1,62 +1,66 @@
 {
   "name": "Autoencoder operator",
   "description": "Trains an autoencoder-based model",
-  "tags": ["clustering", "dimension reduction"],
-  "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/autoencoder_operator"],
+  "tags": [
+    "clustering",
+    "dimensionality reduction",
+    "machine learning"
+  ],
+  "authors": [
+    "tercen"
+  ],
+  "urls": [
+    "https://github.com/tercen/autoencoder_operator"
+  ],
   "properties": [
-   {
-    "kind": "StringProperty",
-    "name": "hidden_layers",
-    "defaultValue": "32, 2, 32",
-    "description": "comma-separated list describing the hidden layers architecture (e.g. `12, 2, 12` corresponds to 3 layers containing respectively 12, 2 and 12 nodes)"
+    {
+      "kind": "StringProperty",
+      "name": "hidden_layers",
+      "defaultValue": "32, 2, 32",
+      "description": "comma-separated list describing the hidden layers architecture (e.g. `12, 2, 12` corresponds to 3 layers containing respectively 12, 2 and 12 nodes)",
+      "values": {}
     },
     {
-    "kind": "StringProperty",
-    "name": "activ_functions",
-    "defaultValue": "relu, linear, relu",
-    "description": "comma-separated list of activation functions, as many as there are hidden layers (e.g. relu, linear, relu). Possible values include tanh, sigmoid, relu, linear, ramp and step"
+      "kind": "StringProperty",
+      "name": "activ_functions",
+      "defaultValue": "relu, linear, relu",
+      "description": "comma-separated list of activation functions, as many as there are hidden layers (e.g. relu, linear, relu). Possible values include tanh, sigmoid, relu, linear, ramp and step",
+      "values": {}
     },
     {
-    "kind": "EnumeratedProperty",
-    "name": "optim_type",
-    "defaultValue": "adam",
-    "values": [
-      "sgd", 
-      "rmsprop",
-      "adam"
-    ],
-    "description": "Optimizer type"
-  },
-      {
-    "kind": "EnumeratedProperty",
-    "name": "loss_type",
-    "defaultValue": "squared",
-    "values": [
-      "squared",
-      "absolute",
-      "huber",
-      "pseudo-huber"
-    ],
-    "description": "Loss type"
-  },
-    {
-    "kind": "DoubleProperty",
-    "name": "n_epochs",
-    "defaultValue": 30,
-    "description": "Number of epochs"
+      "kind": "EnumeratedProperty",
+      "name": "optim_type",
+      "defaultValue": "adam",
+      "description": "Optimizer type",
+      "values": ["sgd", "rmsprop", "adam"]
     },
     {
-    "kind": "DoubleProperty",
-    "name": "batch_size",
-    "defaultValue": 32,
-    "description": "batch size"
+      "kind": "EnumeratedProperty",
+      "name": "loss_type",
+      "defaultValue": "squared",
+      "description": "Loss type",
+      "values": ["squared", "absolute", "huber", "pseudo-huber"]
     },
     {
-    "kind": "DoubleProperty",
-    "name": "seed",
-    "defaultValue": -1,
-    "description": "Seed for random number generation. if less than 0, set a Random seed"
-  }
+      "kind": "DoubleProperty",
+      "name": "n_epochs",
+      "defaultValue": "30",
+      "description": "Number of epochs",
+      "values": {}
+    },
+    {
+      "kind": "DoubleProperty",
+      "name": "batch_size",
+      "defaultValue": "32",
+      "description": "batch size",
+      "values": {}
+    },
+    {
+      "kind": "DoubleProperty",
+      "name": "seed",
+      "defaultValue": "-1",
+      "description": "Seed for random number generation. if less than 0, set a Random seed",
+      "values": {}
+    }
   ]
 }
