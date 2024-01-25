@@ -1,6 +1,6 @@
 {
-  "name": "Autoencoder operator",
-  "description": "Trains an autoencoder-based model",
+  "name": "Autoencoder",
+  "description": "Trains an autoencoder-based model.",
   "tags": [
     "clustering",
     "dimensionality reduction",
@@ -32,14 +32,23 @@
       "name": "optim_type",
       "defaultValue": "adam",
       "description": "Optimizer type",
-      "values": ["sgd", "rmsprop", "adam"]
+      "values": [
+        "sgd",
+        "rmsprop",
+        "adam"
+      ]
     },
     {
       "kind": "EnumeratedProperty",
       "name": "loss_type",
       "defaultValue": "squared",
       "description": "Loss type",
-      "values": ["squared", "absolute", "huber", "pseudo-huber"]
+      "values": [
+        "squared",
+        "absolute",
+        "huber",
+        "pseudo-huber"
+      ]
     },
     {
       "kind": "DoubleProperty",
