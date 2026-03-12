@@ -108,7 +108,7 @@
               {
                 "kind": "MetaFactor",
                 "name": "Measurement",
-                "type": "numeric",
+                "type": "double",
                 "description": "Numeric input values for autoencoder training",
                 "ontologyMapping": "measurement",
                 "crosstabMapping": "y",
